@@ -1,0 +1,27 @@
+Step 1:
+//On laptop
+docker build -t my-app:v1 .
+
+
+//On GCP instance
+sudo apt-get update
+sudo apt-get install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+
+docker build -t my-app:v1 .
+
+Step 2:
+docker run -d -p 8080:8080 --name gcp-flask-app my-app:v1
+
+Step 3:
+docker run -d -p 8080:8080 --name local-flask-app my-app:v1
+
+Step 4:
+curl http://localhost:8080
+
+//On GCP
+curl http://<External IP>:8080
+
+http://136.113.85.33:8080
