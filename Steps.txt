@@ -13,8 +13,8 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 //Already did this part 
 
-docker build -t my-app:v1 . 
-or docker build --network=host -t my-app:v1 . 
+docker build -t my-app:v1 . //mainly this command
+or docker build --network=host -t my-app:v1 . //this is if the previous one doesn't work
 
 Step 2:
 //On GCP
